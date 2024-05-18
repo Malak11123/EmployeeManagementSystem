@@ -16,6 +16,7 @@ public class EmployeeManagementSystem {
     private Scanner scanner;
 
     public EmployeeManagementSystem() {
+        employees = new ArrayList<>();
         scanner = new Scanner(System.in);
     }
 
