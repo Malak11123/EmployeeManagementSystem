@@ -46,6 +46,27 @@ public class EmployeeManagementSystem {
         }
     }
 
+      public void updateEmployee() {
+        System.out.print("Enter the ID of the employee to update: ");
+        int id = scanner.nextInt();
+        scanner.nextLine(); // Consume newline
+
+        Employee employee = findEmployeeById(id);
+        if (employee != null) {
+            System.out.print("Enter new Name: ");
+            String name = scanner.nextLine();
+            employee.setName(name);
+
+            System.out.print("Enter new Position: ");
+            String position = scanner.nextLine();
+            employee.setPosition(position);
+
+            System.out.println("Employee updated successfully.");
+        } else {
+            System.out.println("Employee not found.");
+        }
+    }
+
 
     public void showMenu() {
         int choice;
@@ -53,7 +74,8 @@ public class EmployeeManagementSystem {
             System.out.println("\nEmployee Management System:");
             System.out.println("1. Add Employee");
             System.out.println("2. View Employees");
-            System.out.println("3. Exit");
+            System.out.println("3. Update Employee");
+            System.out.println("4. Exit");
             System.out.print("Enter your choice: ");
             choice = scanner.nextInt();
             scanner.nextLine(); // Consume newline
@@ -66,6 +88,9 @@ public class EmployeeManagementSystem {
                     viewEmployees();
                     break;
                 case 3:
+                    updateEmployee();
+                    break;
+                case 4:
                     System.out.println("Exiting system...");
                     break;
                 default:
