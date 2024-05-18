@@ -67,6 +67,29 @@ public class EmployeeManagementSystem {
         }
     }
 
+   public void deleteEmployee() {
+        System.out.print("Enter the ID of the employee to delete: ");
+        int id = scanner.nextInt();
+        scanner.nextLine(); // Consume newline
+
+        Employee employee = findEmployeeById(id);
+        if (employee != null) {
+            employees.remove(employee);
+            System.out.println("Employee deleted successfully.");
+        } else {
+            System.out.println("Employee not found.");
+        }
+    }
+
+    private Employee findEmployeeById(int id) {
+        for (Employee employee : employees) {
+            if (employee.getId() == id) {
+                return employee;
+            }
+        }
+        return null;
+    }
+
 
     public void showMenu() {
         int choice;
